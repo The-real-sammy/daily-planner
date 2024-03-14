@@ -6,14 +6,12 @@ var startTime = dayjs('2000-01-01 07:00');
 var endTime = dayjs('2000-01-01 18:00');
 
 // Function to get the current day string using ordinal suffix
-function getCurrentDayString() {
+function getCurrentDay() {
   var currentDate = dayjs(); // representing date object to current date/time
-  var dayEl = currentDate.format('dddd, MMMM D'); // formats date in following manner: Thursday, September 5 
-  var dayOfMonth = currentDate.date(); // this will gets day of month from dayjs() object
+  var dayEl = currentDate.format('dddd, MMMM Do'); // 'do' should automatically add the ordinal suffix 
+  var dayOfMonth = currentDate.date(); // this will get the day of month from dayjs() 
 
-
-  return dayEl;
-}
+} return dayEl;
 
 function CurrentDay() {
   currentDayElement.text(getCurrentDayString());
