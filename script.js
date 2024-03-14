@@ -1,4 +1,26 @@
 // * Display the current day at the top of the calender when a user opens the planner.
+
+var currentDay = $(currentDay) // element where current day is displayed 
+//setting the start and end time of the calendar 
+var startTime = dayjs('2000-01-01 07:00');
+var endTime = dayjs('2000-01-01 18:00');
+
+// Function to get the current day string using ordinal suffix
+function getCurrentDayString() {
+  var currentDate = dayjs(); // representing date object to current date/time
+  var dayEl = currentDate.format('dddd, MMMM D'); // formats date in following manner: Thursday, September 5 
+  var dayOfMonth = currentDate.date(); // this will gets day of month from dayjs() object
+
+
+  return dayEl;
+}
+
+function CurrentDay() {
+  currentDayElement.text(getCurrentDayString());
+}
+
+
+
  
 // * Present timeblocks for standard business hours when the user scrolls down.
  
