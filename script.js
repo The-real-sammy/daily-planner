@@ -10,18 +10,20 @@ function getCurrentDay() {
   var currentDate = dayjs(); // representing date object to current date/time
   var dayEl = currentDate.format('dddd, MMMM Do'); // 'do' should automatically add the ordinal suffix 
   var dayOfMonth = currentDate.date(); // this will get the day of month from dayjs() 
+  return dayEl;
+}  getCurrentDay()
 
-} return dayEl;
-
-function CurrentDay() {
-  currentDayElement.text(getCurrentDayString());
-}
+function currentDay() {
+  currentDayElement.text(getCurrentDay());
+} currentDay()
 
 
-
- 
 // * Present timeblocks for standard business hours when the user scrolls down.
  
+function timeBlock() {
+  
+}
+
 // * Color-code each timeblock based on past, present, and future when the timeblock is viewed.
  
 // * Allow a user to enter an event when they click a timeblock
@@ -29,5 +31,3 @@ function CurrentDay() {
 // * Save the event in local storage when the save button is clicked in that timeblock.
 
 // * Persist events between refreshes of a page
-
-// The following animation demonstrates the application functionality:
