@@ -25,7 +25,7 @@ git@github.com:The-real-sammy/daily-planner.git
 
 ### To use this website you can access it via the deployed web link: 
 
-[(https://github.com/The-real-sammy/daily-planner)]
+[https://the-real-sammy.github.io/daily-planner/]
 
 For suggestions on what to review first, open the Chrome DevTools by pressing Command+Option+I (macOS) or Control+Shift+I (Windows). A console panel should open either below or to the side of the webpage in the browser. 
 
@@ -36,18 +36,11 @@ For suggestions on what to review first, open the Chrome DevTools by pressing Co
 #### Screenshots of deployed page:
 
 ##### Image 01:
+<img width="1181" alt="Screenshot 2024-03-15 at 07 56 34" src="https://github.com/The-real-sammy/SK-Bootstrap-Portfolio/assets/152024562/9cfea102-10fc-4db9-9b55-339ca9c3b1b4">
 
-<img width="1279" alt="Screenshot 2024-02-24 at 15 04 25" src="https://github.com/The-real-sammy/SK-Bootstrap-Portfolio/assets/152024562/a533dff3-8311-4617-bf43-bd7408c5e433">
 
 ##### Image 02:
-
-<img width="1276" alt="Screenshot 2024-02-24 at 15 04 35" src="https://github.com/The-real-sammy/SK-Bootstrap-Portfolio/assets/152024562/9f2834d5-289f-4d0e-9e27-c914a371fb59">
-
-##### Image 03:
-
-<img width="1251" alt="Screenshot 2024-02-24 at 15 04 43" src="https://github.com/The-real-sammy/SK-Bootstrap-Portfolio/assets/152024562/82140aaf-db86-4a90-acad-0e8da8261899">
-
-
+<img width="1168" alt="Screenshot 2024-03-15 at 07 56 23" src="https://github.com/The-real-sammy/SK-Bootstrap-Portfolio/assets/152024562/4215d700-902f-4ada-9514-81a173cb874a">
 
 ## Credits:
 
