@@ -1,6 +1,6 @@
 // * Display the current day at the top of the calender when a user opens the planner.
 
-var currentDay = $(currentDay) // element where current day is displayed 
+var currentDay = $('#currentDay') // element where current day is displayed 
 //setting the start and end time of the calendar 
 var startTime = dayjs('2000-01-01 07:00');
 var endTime = dayjs('2000-01-01 18:00');
@@ -14,15 +14,31 @@ function getCurrentDay() {
 }  getCurrentDay()
 
 function currentDay() {
-  currentDayElement.text(getCurrentDay());
-} currentDay()
+  currentDay.text(getCurrentDay());
+} 
 
 
 // * Present timeblocks for standard business hours when the user scrolls down.
  
 function timeBlock() {
-  
+    // create hourly timeblocks in rows 
+    var row = $('<div class="row">');
+    var hour = $('<div class="col-3 col-sm-2 col-md-1 hour text-end pt-3">');
+    var textSpace = $('<textarea class="col">');
+    var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
 }
+
+  // creating hour element and appending to row
+  var timeString = dayandHour ();
+  hour.text(timeString);
+  row.append(hour);
+
+function getHourAndDay(time) {
+    // time is a dayjs() object
+    return time.format('hA');
+}
+
+
 
 // * Color-code each timeblock based on past, present, and future when the timeblock is viewed.
  
