@@ -56,6 +56,10 @@ function timeBlock(time) {
   }
 }
 
+
+
+
+
 // * Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
 function getHourTimeTense(time) {
@@ -106,3 +110,28 @@ row.append(saveButton);
 $('.container').append(row);
 
 // * Persist events between refreshes of a page 
+
+//event bubbling  
+function LocalStorage() {
+
+  // this should covert the schedule object to string to storage in localStorage
+  var scheduleString = JSON.stringify(schedule);
+  localStorage.setItem('schedule', scheduleString);
+}
+
+function loadingSchedule() {
+  var storedSchedule = localStorage.getItem('schedule');
+
+  // if it does not exist in user's local storage, this should stop loading
+  if (storedSchedule === null) {
+      return;
+  }
+
+  schedule = JSON.parse(storedSchedule);
+}
+
+function clearSchedule() {
+  schedule = {};
+  LocalStorage();
+
+}
