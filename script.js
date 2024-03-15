@@ -2,7 +2,7 @@
 
 var currentDay = $('#currentDay'); // element where current day is displayed 
 //setting the start and end time of the calendar 
-var startTime = dayjs('2000-01-01 07:00');
+var startTime = dayjs('2000-01-01 06:00');
 var endTime = dayjs('2000-01-01 18:00');
 var schedule = {};
 
