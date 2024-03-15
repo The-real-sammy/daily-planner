@@ -11,7 +11,7 @@ This calendar application allows users to input event information and save event
 
 - This project features dynamically updated HTML and CSS powered by jQuery. 
 - Practicing JavaScript, and writing functions.
-- Usinng Day.js library to work with date and time.
+- Using Day.js library to work with date and time.
 - Using LocalStorage.
 
 ## Installation:
