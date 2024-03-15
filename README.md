@@ -13,7 +13,7 @@ This calendar application allows users to input event information and save event
 - Practicing JavaScript, and writing functions.
 - Usinng Day.js library to work with date and time.
 - Using LocalStorage.
-- 
+
 ## Installation:
 
 Clone this repository using:
