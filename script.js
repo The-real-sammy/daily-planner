@@ -43,7 +43,6 @@ function timeBlock(time) {
   var row = $('<div class="row">');
   var hour = $('<div class="col-3 col-sm-2 col-md-1 hour text-end pt-3">');
   var textSpace = $('<textarea class="col">');
-  var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
 
 
   // creating hour element and appending to row
@@ -93,5 +92,17 @@ row.append(textSpace);
 
 // * Save the event in local storage when the save button is clicked in that timeblock.
 
+var saveIcon = $('<i class=" icon-save">'); // this should (?) create a new element and assign class
+var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
 
-// * Persist events between refreshes of a page
+ saveButton.on('click', function () {
+  timeBlock(time.hour(), textSpace);
+});  // adding an event listener for the save button element to save on click action to local storage
+
+saveButton.append(saveIcon);
+row.append(saveButton);
+
+// append time block row to the container
+$('.container').append(row);
+
+// * Persist events between refreshes of a page 
