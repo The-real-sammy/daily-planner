@@ -82,59 +82,25 @@ function timeBlock(time) {
   // create hourly timeblocks in rows 
   var row = $('<div class="row">');
   var hour = $('<div class="col-3 col-sm-2 col-md-1 hour text-end pt-3">');
-
+  var textSpace = $('<textarea class="col">');
 
   // creating hour element and appending to row
   var timeString = getHourAndDay(time);
   hour.text(timeString);
   row.append(hour);
 
-  function getHourAndDay(time) {
-    // time is a dayjs() object
-    return time.format('hA');
-  }
-}
-// Calling functions after the definition
-loadingSchedule();
-presentDay();
-renderBlock(startTime, endTime);
+  var timeTense = getHourTimeTense(time);
+  textSpace.addClass(timeTense);
 
-// * Color-code each timeblock based on past, present, and future when the timeblock is viewed.
-
-function getHourTimeTense(time) {
-  var checkHour = time.hour();
-  var currentHour = dayjs().hour();
-
-
-  //these conditional statements will check what tense it is against the current hour 
-  if (checkHour < currentHour) {
-    return 'past'; // the less than operator is checking if the time is less than the current hour = past tense 
-  }
-  else if (checkHour === currentHour) {
-    //the equality operator is checking if the time is same as current hour 
-    return 'present';
-  }
-  else {
-    if (checkHour > currentHour) { //the greater than operator is checking if the time is higher than current hour = present
-      return 'future';
-    }
-  }
-
-
-var textSpace = $('<textarea class="col">');
-var timeTense = getHourTimeTense(time);
-textSpace.addClass(timeTense);
-
-// * Allow a user to enter an event when they click a timeblock
-
-// add text area contents with value from schedule if it exists 
-if (schedule[time.hour()] !== undefined) { //not equal comparison checks if a value is retrieved 
+ // add text area contents with value from schedule if it exists 
+ if (schedule[time.hour()] !== undefined) { //not equal comparison checks if a value is retrieved 
   textSpace.val(schedule[time.hour()]);
 }
 
 row.append(textSpace);
 
-// * Save the event in local storage when the save button is clicked in that timeblock.
+  // * Allow a user to enter an event when they click a timeblock
+  // * Save the event in local storage when the save button is clicked in that timeblock.
 
 var saveIcon = $('<i class=" icon-save">'); // this should (?) create a new element and assign class
 var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
@@ -148,7 +114,37 @@ row.append(saveButton);
 
 // append time block row to the container
 $('.container').append(row);
+ 
+}
 
+function getHourAndDay(time) {
+  // time is a dayjs() object
+  return time.format('hA');
+}
+// Calling functions after the definition
+loadingSchedule();
+presentDay();
+renderBlock(startTime, endTime);
+
+// * Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+
+function getHourTimeTense(time) {
+  var checkHour = time.hour();
+  var currentHour = dayjs().hour();
+
+   //these conditional statements will check what tense it is against the current hour 
+   if (checkHour < currentHour) {
+    return 'past'; // the less than operator is checking if the time is less than the current hour = past tense 
+  }
+  else if (checkHour === currentHour) {
+    //the equality operator is checking if the time is same as current hour 
+    return 'present';
+  }
+  else {
+    if (checkHour > currentHour) { //the greater than operator is checking if the time is higher than current hour = present
+      return 'future';
+    }
+  }
 
 }
 
