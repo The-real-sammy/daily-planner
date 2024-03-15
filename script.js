@@ -102,7 +102,7 @@ row.append(textSpace);
   // * Allow a user to enter an event when they click a timeblock
   // * Save the event in local storage when the save button is clicked in that timeblock.
 
-var saveIcon = $('<i class=" icon-save">'); // this should (?) create a new element and assign class
+var saveIcon = $('<i class="fas fa-save">'); // this should (?) create a new element and assign class
 var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
 
  saveButton.on('click', function () {
@@ -119,6 +119,8 @@ $('.container').append(row);
 
 function getHourAndDay(time) {
   // time is a dayjs() object
+  var timeString = dayjs(time).format('hA'); // Use dayjs(time) before format
+
   return time.format('hA');
 }
 // Calling functions after the definition
