@@ -16,21 +16,23 @@ function getCurrentDay() {
   dayEl += ordinalSuffix; //+= adds value of dayel to OrdinalSuffix and assigns the result back to the variable.
 
   return dayEl;
+
+  //conditional statements checking the last digit of the number to determine the right ordinal suffix 
+  function getOrdinalSuffix(number) {
+    if (number % 10 === 1 && number % 100 !== 11) {
+      return 'st';
+    }
+    if (number % 10 === 2 && number % 100 !== 12) {
+      return 'nd';
+    }
+    if (number % 10 === 3 && number % 100 !== 13) {
+      return 'rd';
+    }
+    return 'th';
+  }
+
 }
 
-//conditional statements checking the last digit of the number to determine the right ordinal suffix 
-function getOrdinalSuffix(number) {
-  if (number % 10 === 1 && number % 100 !== 11) {
-    return 'st';
-  }
-  if (number % 10 === 2 && number % 100 !== 12) {
-    return 'nd';
-  }
-  if (number % 10 === 3 && number % 100 !== 13) {
-    return 'rd';
-  }
-  return 'th';
-}
 
 function presentDay() {
   var currentDate = dayjs().format('dddd, MMMM Do'); // Formatting the current date
@@ -42,27 +44,27 @@ function presentDay() {
 function generateBlock(fromTime, toTime) {
   // default to hours 00:00 to 23:00 when time is not provided
   if (fromTime === undefined) {
-      fromTime = dayjs('2000-01-01 00:00');
+    fromTime = dayjs('2000-01-01 00:00');
   }
 
   if (toTime === undefined) {
-      toTime = dayjs('2000-01-01 23:00');
+    toTime = dayjs('2000-01-01 23:00');
   }
 
   // swap the times if the from time is greater than the to time
   if (fromTime.hour() > toTime.hour()) {
-      var temp = fromTime;
+    var temp = fromTime;
 
-      fromTime = toTime;
-      toTime = temp;
+    fromTime = toTime;
+    toTime = temp;
   }
 
   for (var currentTime = fromTime; currentTime.hour() <= toTime.hour() && currentTime.date() === fromTime.date(); currentTime = currentTime.add(1, 'hour')) {
-      timeBlock(currentTime);
+    timeBlock(currentTime);
   }
 }
 
-function renderBlock (fromTime, toTime) {
+function renderBlock(fromTime, toTime) {
   var container = $('.container');
   container.html('');
 
@@ -92,29 +94,29 @@ function timeBlock(time) {
   var timeTense = getHourTimeTense(time);
   textSpace.addClass(timeTense);
 
- // add text area contents with value from schedule if it exists 
- if (schedule[time.hour()] !== undefined) { //not equal comparison checks if a value is retrieved 
-  textSpace.val(schedule[time.hour()]);
-}
+  // add text area contents with value from schedule if it exists 
+  if (schedule[time.hour()] !== undefined) { //not equal comparison checks if a value is retrieved 
+    textSpace.val(schedule[time.hour()]);
+  }
 
-row.append(textSpace);
+  row.append(textSpace);
 
   // * Allow a user to enter an event when they click a timeblock
   // * Save the event in local storage when the save button is clicked in that timeblock.
 
-var saveIcon = $('<i class="fas fa-save">'); // this should (?) create a new element and assign class
-var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
+  var saveIcon = $('<i class="fas fa-save">'); // this should (?) create a new element and assign class
+  var saveButton = $('<div class="col-3 col-sm-2 col-md-1 saveBtn">');
 
- saveButton.on('click', function () {
-  timeBlock(time.hour(), textSpace);
-});  // adding an event listener for the save button element to save on click action to local storage
+  saveButton.on('click', function () {
+    timeBlock(time.hour(), textSpace);
+  });  // adding an event listener for the save button element to save on click action to local storage
 
-saveButton.append(saveIcon);
-row.append(saveButton);
+  saveButton.append(saveIcon);
+  row.append(saveButton);
 
-// append time block row to the container
-$('.container').append(row);
- 
+  // append time block row to the container
+  $('.container').append(row);
+
 }
 
 function getHourAndDay(time) {
@@ -134,8 +136,8 @@ function getHourTimeTense(time) {
   var checkHour = time.hour();
   var currentHour = dayjs().hour();
 
-   //these conditional statements will check what tense it is against the current hour 
-   if (checkHour < currentHour) {
+  //these conditional statements will check what tense it is against the current hour 
+  if (checkHour < currentHour) {
     return 'past'; // the less than operator is checking if the time is less than the current hour = past tense 
   }
   else if (checkHour === currentHour) {
@@ -164,7 +166,7 @@ function loadingSchedule() {
 
   // if it does not exist in user's local storage, this should stop loading
   if (storedSchedule === null) {
-      return;
+    return;
   }
 
   schedule = JSON.parse(storedSchedule);
